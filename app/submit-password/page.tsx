@@ -52,7 +52,7 @@ export default function SubmitPassword() {
               what you write!
             </Hint>
           ) : (
-            <Hint className="text-green-200">Congratulations! I see you've found the password box! Nice job.</Hint>
+            <Hint className="text-green-200">Congratulations! I see you&apos;ve found the password box! Nice job.</Hint>
           )}
         </>
       ) : (
