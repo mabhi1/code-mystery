@@ -32,7 +32,7 @@ export default function SubmitPassword() {
       } else {
         toast.info("Developer tools might help to match the case.");
       }
-    } else if (password === "") toast.error("Please enter a password.");
+    } else if (!password || password === "") toast.error("Please enter a password.");
     else toast.error("Check password. Your password is WRONG");
   };
 
@@ -60,14 +60,14 @@ export default function SubmitPassword() {
       {theme === "dark" ? (
         showHint && (
           <Hint>
-            Hint: Ever wondered what lies beneath those mysterious asterisks? Think like a developer and try to see what
-            you write!
+            Ever wondered what lies beneath those mysterious asterisks? Think like a developer and try to see what you
+            write!
           </Hint>
         )
       ) : (
         <Hint>
-          Hint: Remember, only try debugging code at night, not your sleep schedule during the day. Happy coding,
-          nocturnal ninja!
+          Remember, only try debugging code at night, not your sleep schedule during the day. Happy coding, nocturnal
+          ninja!
         </Hint>
       )}
     </div>

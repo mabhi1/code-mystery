@@ -15,6 +15,7 @@ export default function EnterOTP() {
   const [code, setCode] = useState(defaultCode);
   const [value, setValue] = useState("");
   const [showCode, setShowCode] = useState(false);
+  const [hint, setHint] = useState("Look at a place where developers get important messages.");
   const editorRef = useRef<HTMLInputElement>();
 
   const generateOTP = () => {
@@ -43,8 +44,7 @@ export default function EnterOTP() {
       return;
     }
 
-    document.getElementById("submit-the-otp-hint")!.textContent =
-      "Hint: Your OTP looks good. Looking at the source code might help.";
+    setHint("Your OTP looks good. Looking at the source code might help.");
 
     const res = await fetch("https://emkc.org/api/v2/piston/execute", {
       method: "POST",
@@ -116,7 +116,7 @@ export default function EnterOTP() {
               Edit Source Code
             </Button>
           </div>
-          <Hint id="submit-the-otp-hint">Hint: Look at a place where developers get important messages. </Hint>
+          <Hint id="submit-the-otp-hint">{hint}</Hint>
         </>
       )}
     </div>

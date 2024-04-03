@@ -12,7 +12,7 @@ export default function Hint({
 }) {
   return (
     <div className={clsx("text-sm leading-5", className)} id={id}>
-      {children}
+      Hint: {children}
     </div>
   );
 }
