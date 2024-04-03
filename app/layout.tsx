@@ -31,8 +31,8 @@ export default function RootLayout({
             <Sidebar />
             <main className="flex-1">{children}</main>
           </div>
-          <div className="flex-1 sm:hidden p-5 border">
-            Please continue on a larger device. Some of the functions is disabled for smaller devices.
+          <div className="flex-1 sm:hidden p-5 text-xl">
+            Please continue on a larger device. Some of the functions are disabled for smaller devices.
           </div>
           <Toaster position="top-center" />
           <Separator />
