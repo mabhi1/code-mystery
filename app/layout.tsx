@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Code Mystery",
-  description: "Solve mystery puzzles to learn basics of javascript",
+  description: "Solve mystery puzzles by using basics of web development",
 };
 
 export default function RootLayout({
