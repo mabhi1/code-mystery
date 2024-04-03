@@ -33,17 +33,17 @@ export default function SubmitPassword() {
         toast.info("Developer tools might help to match the case.");
       }
     } else if (password === "") toast.error("Please enter a password.");
-    else toast.error("Check password. Your password is incorrect.");
+    else toast.error("Check password. Your password is WRONG");
   };
 
   return (
     <div className="flex items-start gap-5 flex-col">
       <PageHeader>Submit Password</PageHeader>
-      <div>Click the submit button below to continue</div>
+      {theme === "light" && <div>Click the submit button below to continue</div>}
       {theme === "dark" && (
         <>
           <Label className="text-white" htmlFor="password">
-            Enter the correct password below and submit the form
+            Enter password
           </Label>
           <Input
             id="password"
@@ -58,16 +58,12 @@ export default function SubmitPassword() {
         Submit
       </Button>
       {theme === "dark" ? (
-        <>
-          {showHint ? (
-            <Hint>
-              Hint: Ever wondered what lies beneath those mysterious asterisks? Think like a developer and try to see
-              what you write!
-            </Hint>
-          ) : (
-            <Hint className="text-green-200">Congratulations! I see you&apos;ve found the password box! Nice job.</Hint>
-          )}
-        </>
+        showHint && (
+          <Hint>
+            Hint: Ever wondered what lies beneath those mysterious asterisks? Think like a developer and try to see what
+            you write!
+          </Hint>
+        )
       ) : (
         <Hint>
           Hint: Remember, only try debugging code at night, not your sleep schedule during the day. Happy coding,

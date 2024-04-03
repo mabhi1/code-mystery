@@ -89,7 +89,12 @@ export default function EnterOTP() {
               onMount={onMount}
             />
           </div>
-          <Button onClick={resetCode}>Reset code</Button>
+          <div className="flex justify-end items-center gap-5">
+            <Button onClick={() => setShowCode(false)}>Save</Button>
+            <Button onClick={resetCode} variant="secondary">
+              Reset code
+            </Button>
+          </div>
         </>
       ) : (
         <>
@@ -107,8 +112,8 @@ export default function EnterOTP() {
               </InputOTPGroup>
             </InputOTP>
             <Button onClick={checkOTP}>Submit</Button>
-            <Button onClick={() => setShowCode((showCode) => !showCode)} variant="secondary" className="ml-auto">
-              {showCode ? "Save" : "Edit Source Code"}
+            <Button onClick={() => setShowCode(true)} variant="secondary" className="ml-auto">
+              Edit Source Code
             </Button>
           </div>
           <Hint id="submit-the-otp-hint">Hint: Look at a place where developers get important messages. </Hint>

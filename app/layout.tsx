@@ -32,11 +32,11 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
           </div>
           <Separator />
-          <Footer />
           <div className="sm:hidden p-5 border">
             Please continue on a larger device. Some of the functions is disabled for smaller devices.
           </div>
           <Toaster position="top-center" />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
