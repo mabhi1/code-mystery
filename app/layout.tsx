@@ -31,11 +31,11 @@ export default function RootLayout({
             <Sidebar />
             <main className="flex-1">{children}</main>
           </div>
-          <Separator />
-          <div className="sm:hidden p-5 border">
+          <div className="flex-1 sm:hidden p-5 border">
             Please continue on a larger device. Some of the functions is disabled for smaller devices.
           </div>
           <Toaster position="top-center" />
+          <Separator />
           <Footer />
         </ThemeProvider>
       </body>
