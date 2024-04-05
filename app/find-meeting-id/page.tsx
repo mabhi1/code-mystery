@@ -21,29 +21,29 @@ export default function FindMeetingID() {
   const [name, setName] = useState(commonStrings.texts.emptyString);
   const [hint, setHint] = useState(false);
 
-  const calculateDay = () => {
-    const dateToday = new Date();
-    const dateTomorrow = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1);
-    if (
-      dateTomorrow.getFullYear() == date.getFullYear() &&
-      dateTomorrow.getMonth() == date.getMonth() &&
-      dateTomorrow.getDate() == date.getDate()
-    ) {
-      setDay(strings.messages.todayText);
-    } else if (
-      dateToday.getFullYear() == date.getFullYear() &&
-      dateToday.getMonth() == date.getMonth() &&
-      dateToday.getDate() == date.getDate()
-    ) {
-      setDay(strings.messages.tomorrowText);
-    } else {
-      setDay(format(dateTomorrow, "PPP"));
-    }
-  };
-
   useEffect(() => {
+    const calculateDay = () => {
+      const dateToday = new Date();
+      const dateTomorrow = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1);
+      if (
+        dateTomorrow.getFullYear() == date.getFullYear() &&
+        dateTomorrow.getMonth() == date.getMonth() &&
+        dateTomorrow.getDate() == date.getDate()
+      ) {
+        setDay(strings.messages.todayText);
+      } else if (
+        dateToday.getFullYear() == date.getFullYear() &&
+        dateToday.getMonth() == date.getMonth() &&
+        dateToday.getDate() == date.getDate()
+      ) {
+        setDay(strings.messages.tomorrowText);
+      } else {
+        setDay(format(dateTomorrow, "PPP"));
+      }
+    };
+
     calculateDay();
-  }, [date, calculateDay]);
+  }, [date]);
 
   const handleJoin = () => {
     if (!name) {
