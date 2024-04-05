@@ -81,7 +81,7 @@ export default function FindMeetingID() {
               htmlFor="audio"
               className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-              Don't connect to my audio
+              Don&apos;t connect to my audio
             </label>
           </div>
           <div className="flex items-center space-x-2">
@@ -101,7 +101,7 @@ export default function FindMeetingID() {
           </Button>
         </CardFooter>
       </Card>
-      {hint && <Hint>I don't know about yout but the date mentioned for today seems weird to me.</Hint>}
+      {hint && <Hint>I don&apos;t know about yout but the date mentioned for today seems weird to me.</Hint>}
     </div>
   );
 }
