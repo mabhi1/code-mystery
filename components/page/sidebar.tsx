@@ -19,6 +19,9 @@ export default function Sidebar() {
         <li>
           <MenuItem href="enter-otp">Enter OTP</MenuItem>
         </li>
+        <li>
+          <MenuItem href="find-meeting-id">Find Meeting ID</MenuItem>
+        </li>
       </ul>
     </menu>
   );
