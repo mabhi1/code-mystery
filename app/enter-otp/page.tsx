@@ -1,31 +1,27 @@
 "use client";
 
-import Hint from "@/components/page/hint";
-import PageHeader from "@/components/page/page-header";
+import Hint from "@/components/page/common/hint";
+import PageHeader from "@/components/page/layout/page-header";
 import { Button } from "@/components/ui/button";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import Editor from "@monaco-editor/react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
-
-const defaultCode = `\n// Function to check if input matches with OTP\n// params {input} list of entered number\n// params {otp} generated otp\nfunction checkOTP(input, otp) {\n\tif (input && input.length === 6 && otp >= 100000 && otp < 10000000) {\n\t\tconst enteredOTP = input.join('');\n\t\treturn enteredOTP === otp;\n\t}\n}\n`;
+import strings from "@/lib/strings/enter-otp.json";
 
 export default function EnterOTP() {
   const [randomNumber, setRandomNumber] = useState(Math.floor(100000 + Math.random() * 900000));
-  const [code, setCode] = useState(defaultCode);
+  const [code, setCode] = useState(strings.pageElements.defaultCode);
   const [value, setValue] = useState("");
   const [showCode, setShowCode] = useState(false);
-  const [hint, setHint] = useState("Look at a place where developers get important messages.");
+  const [hint, setHint] = useState(strings.hints.defaultHint);
   const editorRef = useRef<HTMLInputElement>();
 
   const generateOTP = () => {
     const generatedOTP = Math.floor(100000 + Math.random() * 900000);
     setRandomNumber(generatedOTP);
-    console.log(
-      "%cIt is not a good idea to send OTP in console. Look at a more secure place in your browser.",
-      "color:green"
-    );
-    sessionStorage.setItem("OTP", generatedOTP.toString());
+    console.log(strings.hints.consoleHint, `color:${strings.pageElements.consoleColor}`);
+    sessionStorage.setItem(strings.pageElements.sessionVariable, generatedOTP.toString());
   };
 
   const onMount = (editor: any) => {
@@ -40,49 +36,49 @@ export default function EnterOTP() {
 
   const checkOTP = async () => {
     if (!value || Number(value) !== randomNumber) {
-      toast.error("Invalid OTP");
+      toast.error(strings.toastMessages.invalidOTP);
       return;
     }
 
-    setHint("Your OTP looks good. Looking at the source code might help.");
+    setHint(strings.hints.sourceCodeHint);
 
-    const res = await fetch("https://emkc.org/api/v2/piston/execute", {
+    const res = await fetch(process.env.NEXT_PUBLIC_CODE_EXECUTE_URL!, {
       method: "POST",
       body: JSON.stringify({
-        language: "javascript",
-        version: "18.15.0",
+        language: strings.pageElements.codeExecuteLanguage,
+        version: strings.pageElements.codeExecuteLanguageVersion,
         files: [
           {
-            content: `${code}\nconsole.log(checkOTP([1,2,3,4,5,6], 123456))\nconsole.log(checkOTP([1,2,3,4,5,1], 123456))`,
+            content: `${code}${strings.pageElements.codeTestCases}`,
           },
         ],
       }),
     });
     const data = await res.json();
 
-    if (data.run.output !== "true\nfalse\n") {
-      toast.info("You are close but still something is missing.");
+    if (data.run.output !== strings.pageElements.codeResult) {
+      toast.info(strings.toastMessages.codeMismatch);
       return;
     }
 
-    toast.success("Perfect! You cracked it");
+    toast.success(strings.toastMessages.success);
   };
 
   const resetCode = () => {
-    setCode(defaultCode);
+    setCode(strings.pageElements.defaultCode);
   };
 
   return (
     <div className="space-y-5">
-      <PageHeader>Enter One Time Passcode</PageHeader>
+      <PageHeader>{strings.layout.title}</PageHeader>
       {showCode ? (
         <>
-          <div>Language: JavaScript</div>
+          <div>{strings.pageElements.codeEditorTitle}</div>
           <div className="text-lg rounded-md w-full h-fit overflow-hidden">
             <Editor
               height="30rem"
               width="100%"
-              defaultLanguage="javascript"
+              defaultLanguage={strings.pageElements.codeExecuteLanguage}
               value={code}
               onChange={(value) => changeCode(value)}
               theme="vs-dark"
@@ -90,17 +86,17 @@ export default function EnterOTP() {
             />
           </div>
           <div className="flex justify-end items-center gap-5">
-            <Button onClick={() => setShowCode(false)}>Save</Button>
+            <Button onClick={() => setShowCode(false)}>{strings.pageElements.saveButtonText}</Button>
             <Button onClick={resetCode} variant="secondary">
-              Reset code
+              {strings.pageElements.resetButtonText}
             </Button>
           </div>
         </>
       ) : (
         <>
-          <div>Generate and submit the received OTP</div>
+          <div>{strings.messages.pageMessage}</div>
           <div className="flex items-center gap-5">
-            <Button onClick={generateOTP}>Get OTP</Button>
+            <Button onClick={generateOTP}>{strings.pageElements.otpButtonText}</Button>
             <InputOTP maxLength={6} value={value} onChange={(value) => setValue(value)}>
               <InputOTPGroup>
                 <InputOTPSlot index={0} />
@@ -111,12 +107,12 @@ export default function EnterOTP() {
                 <InputOTPSlot index={5} />
               </InputOTPGroup>
             </InputOTP>
-            <Button onClick={checkOTP}>Submit</Button>
+            <Button onClick={checkOTP}>{strings.pageElements.submitButtonText}</Button>
             <Button onClick={() => setShowCode(true)} variant="secondary" className="ml-auto">
-              Edit Source Code
+              {strings.pageElements.editCodeButtonText}
             </Button>
           </div>
-          <Hint id="submit-the-otp-hint">{hint}</Hint>
+          <Hint>{hint}</Hint>
         </>
       )}
     </div>

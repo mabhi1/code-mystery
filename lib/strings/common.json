@@ -1,0 +1,30 @@
+{
+  "theme": {
+    "lightTheme": "light",
+    "darkTheme": "dark"
+  },
+  "texts": {
+    "emptyString": "",
+    "hint": "Hint"
+  },
+  "layout": {
+    "footer": "© 2024. All RIghts Reserved",
+    "title": "Code Mystery",
+    "headerSubText": "For developers"
+  },
+  "challengesMenu": {
+    "title": "Challenges",
+    "submitPassword": {
+      "title": "Submit Password",
+      "url": "submit-password"
+    },
+    "enterOTP": {
+      "title": "Enter OTP",
+      "url": "enter-otp"
+    },
+    "findMeetingId": {
+      "title": "Find Meeting ID",
+      "url": "find-meeting-id"
+    }
+  }
+}

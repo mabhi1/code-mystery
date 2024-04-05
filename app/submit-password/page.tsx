@@ -1,74 +1,67 @@
 "use client";
 
-import Hint from "@/components/page/hint";
-import PageHeader from "@/components/page/page-header";
+import Hint from "@/components/page/common/hint";
+import PageHeader from "@/components/page/layout/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import commonStrings from "@/lib/strings/common.json";
+import strings from "@/lib/strings/submit-password.json";
 
 export default function SubmitPassword() {
   const { theme } = useTheme();
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(commonStrings.texts.emptyString);
   const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
-    if (theme === "light") {
-      setPassword("");
+    if (theme === commonStrings.theme.lightTheme) {
+      setPassword(commonStrings.texts.emptyString);
       setShowHint(false);
     }
   }, [theme]);
 
   const checkPassword = () => {
-    const passwordField = document.getElementById("password") as HTMLInputElement;
+    const passwordField = document.getElementById(strings.pageElements.passwordInputId) as HTMLInputElement;
     const password = passwordField?.value.toLowerCase();
-    if (passwordField && passwordField.value === "WRONG") toast.success("Perfect! You cracked it.");
-    else if (password === "wrong") {
+    if (passwordField && passwordField.value === process.env.NEXT_PUBLIC_SUBMIT_PASSWORD_KEY?.toUpperCase())
+      toast.success(strings.toastMessages.success);
+    else if (password === process.env.NEXT_PUBLIC_SUBMIT_PASSWORD_KEY) {
       if (!showHint) {
         setShowHint(true);
-        toast.info("You are close but still something is missing.");
+        toast.info(strings.toastMessages.hintHidden);
       } else {
-        toast.info("Developer tools might help to match the case.");
+        toast.info(strings.toastMessages.hintShown);
       }
-    } else if (!password || password === "") toast.error("Please enter a password.");
-    else toast.error("Check password. Your password is WRONG");
+    } else if (!password || password === commonStrings.texts.emptyString) toast.error(strings.toastMessages.noPassword);
+    else toast.error(strings.toastMessages.wrongPassword);
   };
 
   return (
     <div className="flex items-start gap-5 flex-col">
-      <PageHeader>Submit Password</PageHeader>
-      {theme === "light" && <div>Click the submit button below to continue</div>}
-      {theme === "dark" && (
+      <PageHeader>{strings.layout.title}</PageHeader>
+      {theme === commonStrings.theme.lightTheme && <div>{strings.messages.lightModeMessage}</div>}
+      {theme === commonStrings.theme.darkTheme && (
         <>
-          <Label className="text-white" htmlFor="password">
-            Enter password
+          <Label className="text-white" htmlFor={strings.pageElements.passwordInputId}>
+            {strings.pageElements.passwordLabel}
           </Label>
           <Input
-            id="password"
-            type="password"
+            id={strings.pageElements.passwordInputId}
+            type={strings.pageElements.passwordInputId}
             value={password}
             onChange={(event) => setPassword(event.target.value.toLowerCase())}
             className="border-white ring-offset-white focus-visible:ring-white text-white"
           />
         </>
       )}
-      <Button onClick={checkPassword} id="button">
-        Submit
-      </Button>
-      {theme === "dark" ? (
-        showHint && (
-          <Hint>
-            Ever wondered what lies beneath those mysterious asterisks? Think like a developer and try to see what you
-            write!
-          </Hint>
-        )
+      <Button onClick={checkPassword}>{strings.pageElements.submitButtonText}</Button>
+      {theme === commonStrings.theme.darkTheme ? (
+        showHint && <Hint>{strings.hints.darkModeHint}</Hint>
       ) : (
-        <Hint>
-          Remember, only try debugging code at night, not your sleep schedule during the day. Happy coding, nocturnal
-          ninja!
-        </Hint>
+        <Hint>{strings.hints.lightModeHint}</Hint>
       )}
     </div>
   );

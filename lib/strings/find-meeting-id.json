@@ -1,0 +1,42 @@
+{
+  "layout": {
+    "title": "Find Meeting ID",
+    "description": "Find the meeting id and join the meeting"
+  },
+  "hints": {
+    "wrongDayHint": "The date mentioned for today seems weird to me.",
+    "meetingInviteHint": "The meeting id seems to be a palindrome number"
+  },
+  "pageElements": {
+    "inviteButtonText": "View Meeting Invite",
+    "meetingIdPlaceholderText": "Enter meeting ID",
+    "namePlaceholderText": "Enter your name",
+    "audioCheckboxId": "audio",
+    "audioCheckboxText": "Don't connect to my audio",
+    "videoCheckboxId": "video",
+    "videoCheckboxText": "Turn off my video",
+    "resetButtonText": "Reset",
+    "submitButtonText": "Join Now",
+    "closeButtonText": "Close"
+  },
+  "messages": {
+    "joinMeetingTitle": "Join Meeting",
+    "userName": "Max",
+    "meetingId": "TTFFTFFT",
+    "meetingInviteTitle": "Join Meeting",
+    "tomorrowText": "tomorrow",
+    "todayText": "today",
+    "dateMessage": "Today is",
+    "tomorrowDateMessage": "You have a meeting tomorrow",
+    "otherDateMessage": "You have a meeting on",
+    "startMessage": "Your meeting started for today",
+    "meetingMessage": "Find the meeting id and join. You can see the invite email for details."
+  },
+  "toastMessages": {
+    "noNameMessage": "Please enter your name",
+    "wrongNameMessage": "Please enter your correct name",
+    "invalidMeetingIdMessage": "Invalid meeting id",
+    "wrongDayMessage": "Please join on the day of meeting",
+    "success": "Perfect! You cracked it."
+  }
+}

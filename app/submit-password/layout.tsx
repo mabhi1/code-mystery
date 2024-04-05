@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import strings from "@/lib/strings/submit-password.json";
 
 export const metadata: Metadata = {
-  title: "Submit Password",
-  description: "Find the correct password and submit it",
+  title: strings.layout.title,
+  description: strings.layout.description,
 };
 
 export default function Layout({

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import commonStrings from "@/lib/strings/common.json";
 
 export default function Hint({
   children,
@@ -12,7 +13,7 @@ export default function Hint({
 }) {
   return (
     <div className={clsx("text-sm leading-5", className)} id={id}>
-      Hint: {children}
+      {commonStrings.texts.hint}: {children}
     </div>
   );
 }

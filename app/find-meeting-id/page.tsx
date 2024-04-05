@@ -1,6 +1,6 @@
 "use client";
 
-import PageHeader from "@/components/page/page-header";
+import PageHeader from "@/components/page/layout/page-header";
 import { DatePicker } from "@/components/ui/date-picker";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,15 +8,17 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
-import MeetingInvite from "@/components/page/meeting-invite";
+import MeetingInvite from "@/components/page/find-meeting-id/meeting-invite";
 import { toast } from "sonner";
-import Hint from "@/components/page/hint";
+import Hint from "@/components/page/common/hint";
+import commonStrings from "@/lib/strings/common.json";
+import strings from "@/lib/strings/find-meeting-id.json";
 
 export default function FindMeetingID() {
   const [date, setDate] = useState<Date>(new Date());
-  const [day, setDay] = useState("tomorrow");
-  const [id, setId] = useState("");
-  const [name, setName] = useState("");
+  const [day, setDay] = useState(strings.messages.tomorrowText);
+  const [id, setId] = useState(commonStrings.texts.emptyString);
+  const [name, setName] = useState(commonStrings.texts.emptyString);
   const [hint, setHint] = useState(false);
 
   const calculateDay = () => {
@@ -27,81 +29,103 @@ export default function FindMeetingID() {
       dateTomorrow.getMonth() == date.getMonth() &&
       dateTomorrow.getDate() == date.getDate()
     ) {
-      setDay("today");
+      setDay(strings.messages.todayText);
     } else if (
       dateToday.getFullYear() == date.getFullYear() &&
       dateToday.getMonth() == date.getMonth() &&
       dateToday.getDate() == date.getDate()
     ) {
-      setDay("tomorrow");
+      setDay(strings.messages.tomorrowText);
     } else {
-      setDay(`on ${format(dateTomorrow, "PPP")}`);
+      setDay(format(dateTomorrow, "PPP"));
     }
   };
 
   useEffect(() => {
     calculateDay();
-  }, [date]);
+  }, [date, calculateDay]);
 
   const handleJoin = () => {
     if (!name) {
-      toast.error("Please enter your name");
-    } else if (name.toLowerCase() !== "max") {
-      toast.error("Please enter your correct name");
-    } else if (id !== "201102") {
-      toast.error("Invalid meeting id");
-    } else if (day !== "today") {
-      toast.error("Please join on the day of meeting");
+      toast.error(strings.toastMessages.noNameMessage);
+    } else if (name.toLowerCase() !== process.env.NEXT_PUBLIC_MEETING_ID_NAME) {
+      toast.error(strings.toastMessages.wrongNameMessage);
+    } else if (id !== process.env.NEXT_PUBLIC_MEETING_ID) {
+      toast.error(strings.toastMessages.invalidMeetingIdMessage);
+    } else if (day !== strings.messages.todayText) {
+      toast.error(strings.toastMessages.wrongDayMessage);
       setHint(true);
     } else {
-      toast.success("Perfect! You cracked it.");
+      toast.success(strings.toastMessages.success);
     }
+  };
+
+  const handleReset = () => {
+    setId(commonStrings.texts.emptyString);
+    setName(commonStrings.texts.emptyString);
   };
 
   return (
     <div className="space-y-5">
-      <PageHeader>Find Meeting ID</PageHeader>
+      <PageHeader>{strings.layout.title}</PageHeader>
       {day.length > 1 && (
         <div>
-          Today is <DatePicker date={date} setDate={setDate} />. You have a meeting <span>{day}</span>. Find the meeting
-          id and join. You can see the invite email for details.
+          {strings.messages.dateMessage} <DatePicker date={date} setDate={setDate} />.{" "}
+          {day === strings.messages.todayText
+            ? strings.messages.startMessage
+            : day === strings.messages.tomorrowText
+            ? strings.messages.tomorrowDateMessage
+            : `${strings.messages.otherDateMessage} ${day}`}
+          . {strings.messages.meetingMessage}
         </div>
       )}
-      <MeetingInvite trigger={<Button variant="secondary">View Meeting Invite</Button>} />
+      <MeetingInvite trigger={<Button variant="secondary">{strings.pageElements.inviteButtonText}</Button>} />
       <Card className="min-w-[20rem] w-2/5 shadow-lg">
         <CardHeader>
-          <CardTitle className="text-xl font-light">Join Meeting</CardTitle>
+          <CardTitle className="text-xl font-light">{strings.messages.joinMeetingTitle}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-5">
-          <Input type="number" value={id} onChange={(e) => setId(e.target.value)} placeholder="Enter meeting ID" />
-          <Input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name" />
+          <Input
+            type="number"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            placeholder={strings.pageElements.meetingIdPlaceholderText}
+          />
+          <Input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={strings.pageElements.namePlaceholderText}
+          />
           <div className="flex items-center space-x-2">
-            <Checkbox id="audio" />
+            <Checkbox id={strings.pageElements.audioCheckboxId} />
             <label
-              htmlFor="audio"
+              htmlFor={strings.pageElements.audioCheckboxId}
               className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-              Don&apos;t connect to my audio
+              {strings.pageElements.audioCheckboxText}
             </label>
           </div>
           <div className="flex items-center space-x-2">
-            <Checkbox id="video" />
+            <Checkbox id={strings.pageElements.videoCheckboxId} />
             <label
-              htmlFor="video"
+              htmlFor={strings.pageElements.videoCheckboxId}
               className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-              Turn off my video
+              {strings.pageElements.videoCheckboxText}
             </label>
           </div>
         </CardContent>
         <CardFooter className="mt-5 gap-5 items-center justify-end">
-          <Button variant="outline">Cancel</Button>
+          <Button variant="outline" onClick={handleReset}>
+            {strings.pageElements.resetButtonText}
+          </Button>
           <Button disabled={id.length !== 6 || name.length === 0} onClick={handleJoin}>
-            Join Now
+            {strings.pageElements.submitButtonText}
           </Button>
         </CardFooter>
       </Card>
-      {hint && <Hint>I don&apos;t know about yout but the date mentioned for today seems weird to me.</Hint>}
+      {hint && <Hint>{strings.hints.wrongDayHint}</Hint>}
     </div>
   );
 }

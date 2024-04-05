@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import strings from "@/lib/strings/enter-otp.json";
 
 export const metadata: Metadata = {
-  title: "Enter OTP",
-  description: "Generate and submit the correct otp",
+  title: strings.layout.title,
+  description: strings.layout.description,
 };
 
 export default function Layout({

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import strings from "@/lib/strings/find-meeting-id.json";
 
 export const metadata: Metadata = {
-  title: "Join Meeting",
-  description: "Find the meeting id and join the meeting",
+  title: strings.layout.title,
+  description: strings.layout.description,
 };
 
 export default function Layout({
