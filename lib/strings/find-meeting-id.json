@@ -4,7 +4,7 @@
     "description": "Find the meeting id and join the meeting"
   },
   "hints": {
-    "wrongDayHint": "The date mentioned for today seems weird to me.",
+    "wrongDayHint": "There is something wrong with today's mentioned date.",
     "meetingInviteHint": "The meeting id seems to be a palindrome number"
   },
   "pageElements": {
