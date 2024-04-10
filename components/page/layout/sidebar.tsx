@@ -29,6 +29,11 @@ export default function Sidebar() {
             {commonStrings.challengesMenu.findMeetingId.title}
           </MenuItem>
         </li>
+        <li>
+          <MenuItem href={commonStrings.challengesMenu.crimeStory.url}>
+            {commonStrings.challengesMenu.crimeStory.title}
+          </MenuItem>
+        </li>
       </ul>
     </menu>
   );

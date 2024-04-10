@@ -1,8 +1,4 @@
 {
-  "theme": {
-    "lightTheme": "light",
-    "darkTheme": "dark"
-  },
   "texts": {
     "emptyString": "",
     "hint": "Hint"
@@ -25,6 +21,10 @@
     "findMeetingId": {
       "title": "Find Meeting ID",
       "url": "find-meeting-id"
+    },
+    "crimeStory": {
+      "title": "Crime Story",
+      "url": "crime-story"
     }
   }
 }

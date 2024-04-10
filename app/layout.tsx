@@ -26,10 +26,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={clsx(inter.className, "flex min-h-screen text-sm")}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="flex-1 w-full max-w-7xl mx-auto p-5 flex flex-col gap-5">
+          <div className="flex-1 w-full max-w-7xl mx-auto p-5 flex flex-col gap-3">
             <Header />
             <Separator />
-            <div className="flex-1 gap-20 h-fit hidden sm:flex">
+            <div className="flex-1 gap-20 h-fit hidden sm:flex mt-2">
               <Sidebar />
               <main className="flex-1">{children}</main>
             </div>
