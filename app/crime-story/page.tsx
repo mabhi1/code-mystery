@@ -16,15 +16,15 @@ import PhoneScreen from "@/components/page/crime-story/mobile/screens/phone-scre
 import VoicemailScreen from "@/components/page/crime-story/mobile/screens/voicemail-screen";
 
 export default function CrimeStory() {
-  const [screen, setScreen] = useState("lockScreen");
+  const [screen, setScreen] = useState("mainScreen");
   return (
     <div className="flex flex-col lg:flex-row items-start gap-12">
       <div className="flex-1 space-y-5">
         <PageHeader>{strings.layout.title}</PageHeader>
         <div>
-          As a secret agent, you're tasked with decrypting a criminal's device and identifying the culprit from a
-          suspect list. With exclusive access granted to you alone, explore the device, examine each and every detail,
-          and uncover the reality. Approach it with the mindset of a developer and submit the name.
+          As a secret agent, you&apos;re tasked with decrypting a criminal&apos;s device and identifying the culprit
+          from a suspect list. With exclusive access granted to you alone, explore the device, examine each and every
+          detail, and uncover the reality. Approach it with the mindset of a developer and submit the name.
         </div>
         <div className="flex gap-5">
           <Input type="text" placeholder="Enter the criminal's name" />

@@ -21,8 +21,8 @@ export default function VoicemailScreen({ setScreen }: { setScreen: Dispatch<Set
         </div>
         <div className="mt-5 text-sm">Transcription</div>
         <div>
-          &quot;Hello, the key that you are looking for is 3417. Please, don't save this key anywhere. It leads straight
-          to jail...&quot;
+          &quot;Hello, the key that you are looking for is 3417. Please, don&apos;t save this key anywhere. It leads
+          straight to jail...&quot;
         </div>
       </div>
       <div className="grid grid-cols-4 mt-auto">

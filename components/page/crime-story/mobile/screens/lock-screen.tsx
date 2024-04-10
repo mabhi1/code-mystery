@@ -1,5 +1,6 @@
 "use client";
 
+import Hint from "@/components/page/common/hint";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -29,6 +30,7 @@ export default function LockScreen({ setScreen }: { setScreen: Dispatch<SetState
       <Button onClick={handleSubmit} className="w-full">
         Unlock Phone
       </Button>
+      <Hint className="text-xs">Solve previous challenges for credentials</Hint>
       <div className="text-base font-medium text-red-800 mx-auto w-fit">{error}</div>
     </div>
   );
