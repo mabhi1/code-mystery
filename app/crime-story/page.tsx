@@ -14,9 +14,20 @@ import UserMessageScreen from "@/components/page/crime-story/mobile/screens/user
 import NotesScreen from "@/components/page/crime-story/mobile/screens/notes-screen";
 import PhoneScreen from "@/components/page/crime-story/mobile/screens/phone-screen";
 import VoicemailScreen from "@/components/page/crime-story/mobile/screens/voicemail-screen";
+import { toast } from "sonner";
 
 export default function CrimeStory() {
   const [screen, setScreen] = useState("lockScreen");
+  const [name, setName] = useState("");
+
+  const handleSubmit = () => {
+    if (!name || name.toLowerCase() !== process.env.NEXT_PUBLIC_CRIME_STORY_CRIMINAL_NAME) {
+      toast.error("Invalid name");
+    } else {
+      toast.success("Perfect! You cracked it.");
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row items-start gap-12">
       <div className="flex-1 space-y-5">
@@ -27,8 +38,13 @@ export default function CrimeStory() {
           detail, and uncover the reality. Approach it with the mindset of a developer and submit the name.
         </div>
         <div className="flex gap-5">
-          <Input type="text" placeholder="Enter the criminal's name" />
-          <Button>Submit</Button>
+          <Input
+            type="text"
+            placeholder="Enter the criminal's name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Button onClick={handleSubmit}>Submit</Button>
         </div>
         <div className="underline underline-offset-4">List of suspects</div>
         <div className="grid grid-cols-2 h-96 gap-2 overflow-auto border p-2 rounded shadow">

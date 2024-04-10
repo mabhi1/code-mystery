@@ -7,7 +7,7 @@ export default function FileScreen({ setScreen }: { setScreen: Dispatch<SetState
   return (
     <div className="flex flex-col gap-5">
       <ScreenHeader setScreen={setScreen}>Files</ScreenHeader>
-      <Link href="/generate-my-id.py" download className="flex flex-col gap-[1px] items-center w-fit">
+      <Link href="/crime-story//code-screen" className="flex flex-col gap-[1px] items-center w-fit">
         <div className="w-16 h-20 bg-white flex flex-col gap-1 border border-black/50 pt-1 rounded mb-1">
           <Separator className="bg-black/50 w-3/4 mx-auto" />
           <Separator className="bg-black/50 w-3/4 mx-auto" />

@@ -14,8 +14,8 @@ export default function UserMessageScreen({ setScreen }: { setScreen: Dispatch<S
       </ScreenHeader>
       <div className="flex-1 flex flex-col justify-between">
         <div className="w-3/4 p-3 bg-slate-200 dark:bg-slate-800 relative after:content-[''] rounded-t rounded-br after:absolute after:-bottom-1 after:left-0 after:w-2 after:h-4 after:bg-slate-200 dark:after:bg-slate-800 after:rounded-br-full">
-          Save the code to get your unique id. FYI, your name can be easily mapped with your id. Make sure to not reveal
-          your zip code and key as well.
+          Save the code to get your unique ID. FYI, your name has been mapped with your ID in the DOM. Make sure to not
+          reveal your zip code and key.
         </div>
         <Input placeholder="Enter your message" className="rounded-full" />
       </div>

@@ -24,7 +24,7 @@ export default function MessageScreen({ setScreen }: { setScreen: Dispatch<SetSt
             <span>4/1/24</span>
           </div>
           <div className="text-muted-foreground flex-1">
-            Save the code to get your unique id. FYI, your name can be easily...
+            Save the code to get your unique id. FYI, your name has been ...
           </div>
         </div>
       </div>

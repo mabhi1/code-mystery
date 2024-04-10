@@ -12,19 +12,19 @@
     "title": "Challenges",
     "submitPassword": {
       "title": "Submit Password",
-      "url": "submit-password"
+      "url": "/submit-password"
     },
     "enterOTP": {
       "title": "Enter OTP",
-      "url": "enter-otp"
+      "url": "/enter-otp"
     },
     "findMeetingId": {
       "title": "Find Meeting ID",
-      "url": "find-meeting-id"
+      "url": "/find-meeting-id"
     },
     "crimeStory": {
       "title": "Crime Story",
-      "url": "crime-story"
+      "url": "/crime-story"
     }
   }
 }

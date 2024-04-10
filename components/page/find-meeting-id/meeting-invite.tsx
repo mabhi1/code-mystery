@@ -40,6 +40,10 @@ export default function MeetingInvite({ trigger }: { trigger: React.ReactNode })
           The meeting id is encrypted due to security reasons. Think like a developer and decrypt it before using it.
         </div>
         <Hint>{strings.hints.meetingInviteHint}</Hint>
+        <div className="flex flex-col">
+          <span>Thanks,</span>
+          <span>John</span>
+        </div>
         <DialogFooter className="mt-2">
           <DialogClose asChild>
             <Button type="button">{strings.pageElements.closeButtonText}</Button>
