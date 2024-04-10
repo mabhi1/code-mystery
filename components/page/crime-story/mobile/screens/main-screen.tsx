@@ -79,6 +79,14 @@ export default function Mobile({
             </div>
             <div className="grid grid-cols-4 gap-6 mt-auto">
               <div className="w-auto aspect-square z-10">
+                <Button className="bg-[url('/reminders-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
+                <div className="grid place-content-center text-white">Reminders</div>
+              </div>
+              <div className="w-auto aspect-square z-10">
+                <Button className="bg-[url('/photos-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
+                <div className="grid place-content-center text-white">Photos</div>
+              </div>
+              <div className="w-auto aspect-square z-10">
                 <Button
                   className="bg-[url('/notes-icon.png')] bg-contain w-full h-full rounded-lg"
                   onClick={() => {
@@ -95,14 +103,6 @@ export default function Mobile({
                   }}
                 ></Button>
                 <div className="grid place-content-center text-white">Files</div>
-              </div>
-              <div className="w-auto aspect-square z-10">
-                <Button className="bg-[url('/reminders-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
-                <div className="grid place-content-center text-white">Reminders</div>
-              </div>
-              <div className="w-auto aspect-square z-10">
-                <Button className="bg-[url('/photos-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
-                <div className="grid place-content-center text-white">Photos</div>
               </div>
             </div>
           </div>
