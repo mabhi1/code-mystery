@@ -16,7 +16,7 @@ import PhoneScreen from "@/components/page/crime-story/mobile/screens/phone-scre
 import VoicemailScreen from "@/components/page/crime-story/mobile/screens/voicemail-screen";
 
 export default function CrimeStory() {
-  const [screen, setScreen] = useState("mainScreen");
+  const [screen, setScreen] = useState("lockScreen");
   return (
     <div className="flex flex-col lg:flex-row items-start gap-12">
       <div className="flex-1 space-y-5">
