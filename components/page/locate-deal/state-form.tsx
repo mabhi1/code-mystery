@@ -29,7 +29,7 @@ export default function StateForm() {
   return (
     <form className="flex gap-5" onSubmit={handleSubmit}>
       <Select onValueChange={setState}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-72">
           <SelectValue placeholder="Select State" />
         </SelectTrigger>
         <SelectContent>
