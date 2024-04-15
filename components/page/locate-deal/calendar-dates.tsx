@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export default function CalendarDates({ month }: { month: number[] }) {
+export default function CalendarDates({ month }: { month: (string | number)[] }) {
   const prepareCalendar = () => {
     let started = false;
     let current = " ";
@@ -10,7 +10,7 @@ export default function CalendarDates({ month }: { month: number[] }) {
         if (i === month[0] && j === month[1]) {
           current = "1";
           started = true;
-        } else if (i > month[2] || (i === month[2] && j > month[3])) {
+        } else if (i > Number(month[2]) || (i === month[2] && j > Number(month[3]))) {
           current = " ";
           started = false;
         } else if (started) {
