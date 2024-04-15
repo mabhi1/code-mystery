@@ -16,6 +16,7 @@ export default function CalendarDates({ month }: { month: number[] }) {
         } else if (started) {
           current = (Number(current) + 1).toString();
         }
+        if (current.length === 1 && current !== " ") current = "0" + current;
         dates.push(current);
       }
     }

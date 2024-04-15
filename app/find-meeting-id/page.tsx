@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import Hint from "@/components/page/common/hint";
 import commonStrings from "@/lib/strings/common.json";
 import strings from "@/lib/strings/find-meeting-id.json";
+import { checkMeetingDay, checkMeetingId, checkMeetingName } from "@/actions/find-meeting-id";
 
 export default function FindMeetingID() {
   const [date, setDate] = useState<Date>(new Date());
@@ -45,14 +46,14 @@ export default function FindMeetingID() {
     calculateDay();
   }, [date]);
 
-  const handleJoin = () => {
+  const handleJoin = async () => {
     if (!name) {
       toast.error(strings.toastMessages.noNameMessage);
-    } else if (name.toLowerCase() !== process.env.NEXT_PUBLIC_MEETING_ID_NAME) {
+    } else if (await checkMeetingName(name)) {
       toast.error(strings.toastMessages.wrongNameMessage);
-    } else if (id !== process.env.NEXT_PUBLIC_MEETING_ID) {
+    } else if (await checkMeetingId(id)) {
       toast.error(strings.toastMessages.invalidMeetingIdMessage);
-    } else if (day !== strings.messages.todayText) {
+    } else if (await checkMeetingDay(day)) {
       toast.error(strings.toastMessages.wrongDayMessage);
       setHint(true);
     } else {

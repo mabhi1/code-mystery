@@ -9,25 +9,35 @@ import { useState } from "react";
 import { toast } from "sonner";
 import commonStrings from "@/lib/strings/common.json";
 import strings from "@/lib/strings/submit-password.json";
+import { matchPassword } from "@/actions/submit-password";
 
 export default function SubmitPassword() {
   const [password, setPassword] = useState(commonStrings.texts.emptyString);
-  const [showHint, setShowHint] = useState(false);
+  const [showHint, setShowHint] = useState(1);
 
-  const checkPassword = () => {
-    const passwordField = document.getElementById(strings.pageElements.passwordInputId) as HTMLInputElement;
-    const password = passwordField?.value.toLowerCase();
-    if (passwordField && passwordField.value === process.env.NEXT_PUBLIC_SUBMIT_PASSWORD_KEY?.toUpperCase())
-      toast.success(strings.toastMessages.success);
-    else if (password === process.env.NEXT_PUBLIC_SUBMIT_PASSWORD_KEY) {
-      if (!showHint) {
-        setShowHint(true);
-        toast.info(strings.toastMessages.hintHidden);
-      } else {
-        toast.info(strings.toastMessages.hintShown);
+  const checkPassword = async () => {
+    try {
+      const passwordField = document.getElementById(strings.pageElements.passwordInputId) as HTMLInputElement;
+      const password = passwordField?.value.toLowerCase();
+      if (passwordField) {
+        const matchedResult = passwordField && (await matchPassword(passwordField.value, password, true));
+        const unmatchedResult = await matchPassword(passwordField.value, password, false);
+        if (matchedResult) toast.success(strings.toastMessages.success);
+        else if (unmatchedResult) {
+          if (showHint <= 5) {
+            setShowHint((prev) => prev + 1);
+            toast.info(strings.toastMessages.hintHidden);
+          } else {
+            setShowHint(1);
+            toast.info(strings.toastMessages.hintShown);
+          }
+        } else if (!password || password === commonStrings.texts.emptyString)
+          toast.error(strings.toastMessages.noPassword);
+        else toast.error(strings.toastMessages.wrongPassword);
       }
-    } else if (!password || password === commonStrings.texts.emptyString) toast.error(strings.toastMessages.noPassword);
-    else toast.error(strings.toastMessages.wrongPassword);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

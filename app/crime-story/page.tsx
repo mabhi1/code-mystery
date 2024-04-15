@@ -15,13 +15,14 @@ import NotesScreen from "@/components/page/crime-story/mobile/screens/notes-scre
 import PhoneScreen from "@/components/page/crime-story/mobile/screens/phone-screen";
 import VoicemailScreen from "@/components/page/crime-story/mobile/screens/voicemail-screen";
 import { toast } from "sonner";
+import { checkCriminalName } from "@/actions/crime-story";
 
 export default function CrimeStory() {
   const [screen, setScreen] = useState("lockScreen");
   const [name, setName] = useState("");
 
-  const handleSubmit = () => {
-    if (!name || name.toLowerCase() !== process.env.NEXT_PUBLIC_CRIME_STORY_CRIMINAL_NAME) {
+  const handleSubmit = async () => {
+    if (await checkCriminalName(name)) {
       toast.error("Invalid name");
     } else {
       toast.success("Perfect! You cracked it.");

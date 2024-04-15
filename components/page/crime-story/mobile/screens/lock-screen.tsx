@@ -1,5 +1,6 @@
 "use client";
 
+import { checkPlayerName } from "@/actions/crime-story";
 import Hint from "@/components/page/common/hint";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,8 +12,8 @@ export default function LockScreen({ setScreen }: { setScreen: Dispatch<SetState
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
-    if (otp === sessionStorage.getItem("OTP") && name.toLowerCase() === process.env.NEXT_PUBLIC_MEETING_ID_NAME) {
+  const handleSubmit = async () => {
+    if (otp === sessionStorage.getItem("OTP") && (await checkPlayerName(name))) {
       setScreen("mainScreen");
     } else {
       setError("Invalid Credentials");

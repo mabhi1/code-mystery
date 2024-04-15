@@ -15,18 +15,18 @@
   ],
   "weeks": ["s", "m", "t", "w", "t", "f", "s"],
   "dates": [
-    [0, 1, 4, 3, 13],
-    [0, 4, 4, 4, 25],
-    [0, 5, 5, 0, 11],
-    [0, 1, 4, 2, 5],
-    [0, 3, 4, 5, 25],
-    [0, 6, 5, 0, 9],
-    [0, 1, 4, 3, 19],
-    [0, 4, 4, 6, 10],
-    [0, 0, 4, 1, 11],
-    [0, 2, 4, 4, 1],
-    [0, 5, 4, 6, 1],
-    [0, 0, 4, 2, 11]
+    [0, 1, 4, 3, "13"],
+    [0, 4, 4, 4, "25"],
+    [0, 5, 5, 0, "11"],
+    [0, 1, 4, 2, "05"],
+    [0, 3, 4, 5, "25"],
+    [0, 6, 5, 0, "09"],
+    [0, 1, 4, 3, "19"],
+    [0, 4, 4, 6, "10"],
+    [0, 0, 4, 1, "11"],
+    [0, 2, 4, 4, "01"],
+    [0, 5, 4, 6, "01"],
+    [0, 0, 4, 2, "11"]
   ],
   "info": [
     "cryptography is important",
@@ -39,7 +39,7 @@
     "key is always of ten characters",
     "think like a developer",
     "decrypted message is a 5 digit zip code",
-    "Happy thanks giving",
-    "Find the state to stop the deal"
+    "find and kill max",
+    "find the state to stop the deal"
   ]
 }
