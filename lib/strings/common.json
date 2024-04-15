@@ -10,21 +10,27 @@
   },
   "challengesMenu": {
     "title": "Challenges",
-    "submitPassword": {
-      "title": "Submit Password",
-      "url": "/submit-password"
-    },
-    "enterOTP": {
-      "title": "Enter OTP",
-      "url": "/enter-otp"
-    },
-    "findMeetingId": {
-      "title": "Find Meeting ID",
-      "url": "/find-meeting-id"
-    },
-    "crimeStory": {
-      "title": "Crime Story",
-      "url": "/crime-story"
-    }
+    "options": [
+      {
+        "title": "Submit Password",
+        "url": "/submit-password"
+      },
+      {
+        "title": "Enter OTP",
+        "url": "/enter-otp"
+      },
+      {
+        "title": "Find Meeting ID",
+        "url": "/find-meeting-id"
+      },
+      {
+        "title": "Crime Story",
+        "url": "/crime-story"
+      },
+      {
+        "title": "Locate Deal",
+        "url": "/locate-deal"
+      }
+    ]
   }
 }

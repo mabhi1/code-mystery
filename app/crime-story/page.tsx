@@ -5,7 +5,7 @@ import Mobile from "@/components/page/crime-story/mobile/screens/main-screen";
 import strings from "@/lib/strings/crime-story.json";
 import { useState } from "react";
 import LockScreen from "@/components/page/crime-story/mobile/screens/lock-screen";
-import suspects from "@/lib/strings/list-of-suspects.json";
+import suspects from "@/lib/json-db/list-of-suspects.json";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FileScreen from "@/components/page/crime-story/mobile/screens/file-screen";

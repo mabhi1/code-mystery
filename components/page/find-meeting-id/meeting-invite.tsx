@@ -33,7 +33,7 @@ export default function MeetingInvite({ trigger }: { trigger: React.ReactNode })
           {format(dateTomorrow, "PPP")}
         </div>
         <div>
-          <span className="font-medium">MeetingID: </span>
+          <span className="font-medium">Encrypted Meeting ID: </span>
           {strings.messages.meetingId}
         </div>
         <div>

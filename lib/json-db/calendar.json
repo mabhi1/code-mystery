@@ -1,0 +1,45 @@
+{
+  "monthNames": [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december"
+  ],
+  "weeks": ["s", "m", "t", "w", "t", "f", "s"],
+  "dates": [
+    [0, 1, 4, 3, 13],
+    [0, 4, 4, 4, 25],
+    [0, 5, 5, 0, 11],
+    [0, 1, 4, 2, 5],
+    [0, 3, 4, 5, 25],
+    [0, 6, 5, 0, 9],
+    [0, 1, 4, 3, 19],
+    [0, 4, 4, 6, 10],
+    [0, 0, 4, 1, 11],
+    [0, 2, 4, 4, 1],
+    [0, 5, 4, 6, 1],
+    [0, 0, 4, 2, 11]
+  ],
+  "info": [
+    "cryptography is important",
+    "POST should be more secure than GET",
+    "11th character in alphabet is K",
+    "encrypted message xor key is message",
+    "eastern US commits most crimes",
+    "key is always binary",
+    "POST results are in the network tab",
+    "key is always of ten characters",
+    "think like a developer",
+    "decrypted message is a 5 digit zip code",
+    "Happy thanks giving",
+    "Find the state to stop the deal"
+  ]
+}
