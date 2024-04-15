@@ -26,7 +26,7 @@ export default function ShowCalendar() {
         {showCalendar ? "Hide Calendar" : "Show Calendar"}
       </Button>
       {showCalendar && (
-        <div className="w-96 border p-2 space-y-5 pb-5">
+        <div className="w-96 border p-2 space-y-5 pb-5 rounded">
           <div className="flex justify-between items-center px-2">
             <Button variant="ghost" size="icon" disabled={currentMonth === 0} onClick={showPrevious}>
               <SquareChevronLeftIcon className="w-8" />
