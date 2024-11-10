@@ -71,7 +71,7 @@ export default function Mobile({
                     {days[time.getDay() as keyof typeof days]}
                   </div>
                   <div className="text-xl">{`${time.toLocaleString("default", {
-                    month: "long",
+                    month: "short",
                   })} ${time.getDate()}`}</div>
                 </div>
                 <div className="grid place-content-center text-white">Calendar</div>

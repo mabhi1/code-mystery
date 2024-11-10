@@ -5,7 +5,7 @@
   },
   "hints": {
     "wrongDayHint": "There is something wrong with today's mentioned date.",
-    "meetingInviteHint": "The decrypted meeting id seems to be a palindrome number"
+    "meetingInviteHint": "The decrypted meeting id seems to be a palindromic decimal number."
   },
   "pageElements": {
     "inviteButtonText": "View Meeting Invite",
