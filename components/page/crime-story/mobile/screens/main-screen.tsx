@@ -130,7 +130,10 @@ export default function Mobile({
               <Button className="bg-[url('/safari-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
             </div>
             <div className="w-auto aspect-square z-10">
-              <Button className="bg-[url('/mail-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
+              <Button onClick={() => {
+                localStorage.removeItem("code-screen");
+                if (setScreen) setScreen("lockScreen");
+              }} className="bg-[url('/lock-screen-icon.png')] bg-contain w-full h-full rounded-lg"></Button>
             </div>
           </div>
         </>

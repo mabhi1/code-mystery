@@ -72,7 +72,7 @@ export default function RootLayout({
              </div>
           </div>
 
-          <Toaster position="top-right" theme="dark" className="font-mono" />
+          <Toaster position="top-right" className="font-mono" closeButton richColors/>
         </ThemeProvider>
       </body>
     </html>

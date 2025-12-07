@@ -19,7 +19,7 @@ import { checkCriminalName } from "@/actions/crime-story";
 import { Search, FileSearch } from "lucide-react";
 
 export default function CrimeStory() {
-  const [screen, setScreen] = useState("lockScreen");
+  const [screen, setScreen] = useState(localStorage.getItem("code-screen") === "open" ? "mainScreen" : "lockScreen");
   const [name, setName] = useState("");
 
   const handleSubmit = async () => {

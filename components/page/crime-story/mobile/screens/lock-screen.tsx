@@ -15,6 +15,7 @@ export default function LockScreen({ setScreen }: { setScreen: Dispatch<SetState
   const handleSubmit = async () => {
     if (otp === sessionStorage.getItem("OTP") && (await checkPlayerName(name))) {
       setScreen("mainScreen");
+      localStorage.setItem("code-screen", "open");
     } else {
       setError("Invalid Credentials");
     }
