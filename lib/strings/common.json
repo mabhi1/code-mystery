@@ -30,6 +30,10 @@
       {
         "title": "Locate Deal",
         "url": "/locate-deal"
+      },
+      {
+        "title": "Secret Transmission",
+        "url": "/secret-transmission"
       }
     ]
   }

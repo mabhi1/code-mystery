@@ -12,7 +12,7 @@
     "meetingIdPlaceholderText": "Enter meeting ID",
     "namePlaceholderText": "Enter your name",
     "audioCheckboxId": "audio",
-    "audioCheckboxText": "Don't connect to my audio",
+    "audioCheckboxText": "Turn off my audio",
     "videoCheckboxId": "video",
     "videoCheckboxText": "Turn off my video",
     "resetButtonText": "Reset",
