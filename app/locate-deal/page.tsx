@@ -16,7 +16,7 @@ export default function LocateDeal() {
              <span className="font-mono font-bold text-sm tracking-wider uppercase">Intercepted Transmission</span>
          </div>
          
-         <div className="text-sm font-mono leading-relaxed bg-black/50 p-4 rounded border border-green-900/30 text-green-400">
+         <div className="text-sm font-mono leading-relaxed bg-muted/50 p-4 rounded border border-primary/30 text-primary">
             <span className="opacity-50">&gt; DECRYPTING MESSAGE HEADER...</span><br/>
             <span className="opacity-50">&gt; SOURCE: UNKNOWN</span><br/><br/>
             A suspicious meeting for weapons deal is about to happen in a state of USA. You got a critical information of

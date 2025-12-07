@@ -64,7 +64,7 @@ export default function CrimeStory() {
               </div>
            </div>
 
-           <div className="border rounded-lg overflow-hidden bg-black/40">
+           <div className="border rounded-lg overflow-hidden bg-card/40">
               <div className="bg-muted/50 p-2 border-b flex items-center justify-between">
                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">Suspect Database</span>
                  <span className="text-xs text-muted-foreground">{suspects.length} RECORDS FOUND</span>

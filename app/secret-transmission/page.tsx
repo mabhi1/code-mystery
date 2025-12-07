@@ -110,7 +110,7 @@ export default function SecretTransmission() {
         </div>
 
         {/* Terminal/Log Panel */}
-        <div className="bg-black text-green-500 font-mono text-xs p-4 rounded-lg border border-green-900/50 shadow-inner h-[300px] flex flex-col">
+        <div className="bg-black text-green-500 font-mono text-xs p-4 rounded-lg border border-primary/50 shadow-inner h-[300px] flex flex-col">
             <div className="flex items-center gap-2 border-b border-green-900/50 pb-2 mb-2 opacity-50">
                <Terminal className="w-3 h-3" />
                <span>{strings.pageElements.terminalTitle}</span>

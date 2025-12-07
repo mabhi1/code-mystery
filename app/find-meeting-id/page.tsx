@@ -100,7 +100,7 @@ export default function FindMeetingID() {
           {hint && <Hint className="border-red-500/50 text-red-400 bg-red-500/10">{strings.hints.wrongDayHint}</Hint>}
       </div>
 
-      <Card className="w-full shadow-lg border-green-900/50 bg-black/40 backdrop-blur-sm">
+      <Card className="w-full shadow-lg border-primary/50 bg-card/40 backdrop-blur-sm">
         <CardHeader className="border-b border-green-900/30">
           <CardTitle className="text-xl font-mono font-light tracking-widest flex items-center gap-2">
             <Video className="w-5 h-5 text-primary" />

@@ -66,7 +66,7 @@ export default function SubmitPassword() {
                         type={strings.pageElements.passwordInputId}
                         value={password}
                         onChange={(event) => setPassword(event.target.value.toLowerCase())}
-                        className="pl-9 font-mono tracking-widest bg-black/50 border-green-900/50 focus-visible:ring-primary/50 text-white"
+                        className="pl-9 font-mono tracking-widest bg-background/50 border-input focus-visible:ring-primary/50 text-foreground"
                         placeholder="ENTER ACCESS CODE"
                         />
                     </div>
@@ -77,7 +77,7 @@ export default function SubmitPassword() {
                 </Button>
             </div>
 
-            {showHint && <Hint className="hidden dark:block border-green-900/50 bg-green-900/10 text-green-400">{strings.hints.darkModeHint}</Hint>}
+            {showHint && <Hint className="hidden dark:block border-primary/50 bg-primary/10 text-primary">{strings.hints.darkModeHint}</Hint>}
             <Hint className="dark:hidden border-red-500/50 bg-red-500/10 text-red-500">{strings.hints.lightModeHint}</Hint>
         </div>
       </div>
